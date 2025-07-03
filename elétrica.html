@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfólio Profissional</title>
+  <style>
+    /* Reset básico */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* MENU SUPERIOR DIREITO (BOTÕES LATERAIS) */
+    .menu-topo {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      display: flex;
+      gap: 15px;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 10px 15px;
+      border-radius: 8px;
+    }
+
+    .menu-topo a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+
+    .menu-topo a:hover {
+      color: #f3ac13;
+    }
+
+    /* HEADER */
+    header {
+      background: url('../imagens/img_eletrica/eletricista1.png') no-repeat center/cover;
+      height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 20px;
+      color: #aa8d09;
+      font-weight: bold;
+    }
+
+    header p {
+      font-size: 3rem;
+      line-height: 1.2;
+      max-width: 600px;
+    }
+
+    header span {
+      color: white;
+    }
+
+    /* Menu vermelho */
+    nav {
+      background-color: #e80505;
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style: none;
+      display: inline-flex;
+      gap: 20px;
+      justify-content: center;
+      padding: 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      font-size: 1.1rem;
+      padding: 10px 20px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      background-color: #b20000;
+    }
+
+    /* CONTEÚDO PRINCIPAL */
+    main {
+      flex: 1;
+      display: flex;
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    /* Texto principal */
+    .texto-principal {
+      flex: 3;
+      min-width: 280px;
+    }
+
+    .texto-principal h2 {
+      font-size: 2.5rem;
+      color: #004a99;
+      margin-bottom: 20px;
+    }
+
+    .texto-principal p {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+      color: #555;
+      text-align: justify;
+    }
+
+    /* Imagens laterais */
+    aside.imagens-laterais {
+      flex: 1;
+      min-width: 250px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+    }
+
+    aside.imagens-laterais img {
+      max-width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Seção serviços */
+    section.servicos-container {
+      background-color: #222121;
+      border-radius: 20px;
+      padding: 30px 20px;
+      color: white;
+      max-width: 1200px;
+      margin: 40px auto;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    section.servicos-container img {
+      max-width: 180px;
+    }
+
+    section.servicos-container h1 {
+      font-size: 2rem;
+      max-width: 600px;
+    }
+
+    /* Serviços listados */
+    section.servicos-lista {
+      max-width: 1200px;
+      margin: 40px auto;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .servico {
+      background-color: #e88a0b;
+      border-radius: 12px;
+      color: white;
+      padding: 40px 30px;
+      width: 220px;
+      font-weight: bold;
+      font-size: 1.3rem;
+      box-shadow: 0 5px 15px rgba(232, 138, 11, 0.5);
+      transition: transform 0.3s ease;
+      cursor: default;
+    }
+
+    .servico:hover {
+      transform: translateY(-10px);
+    }
+
+    /* Clientes */
+    section.clientes {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    section.clientes h1 {
+      background-color: #222121;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+    }
+
+    .clientes-logos {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .clientes-logos img {
+      max-width: 140px;
+      filter: grayscale(30%);
+      transition: filter 0.3s ease;
+      cursor: pointer;
+    }
+
+    .clientes-logos img:hover {
+      filter: grayscale(0%);
+    }
+
+    /* Contato */
+    section.contato-container {
+      max-width: 1200px;
+      margin: 40px auto 80px auto;
+      padding: 0 20px;
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    form.contato-form {
+      flex: 1;
+      min-width: 320px;
+      background-color: #fff;
+      padding: 30px 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    form.contato-form table {
+      width: 100%;
+    }
+
+    form.contato-form th {
+      text-align: left;
+      padding: 12px 10px 12px 0;
+      color: #555;
+      font-weight: 600;
+      vertical-align: top;
+    }
+
+    form.contato-form td {
+      padding-bottom: 15px;
+    }
+
+    form.contato-form input[type="text"],
+    form.contato-form input[type="email"],
+    form.contato-form input[type="tel"],
+    form.contato-form textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      resize: vertical;
+    }
+
+    form.contato-form input[type="submit"] {
+      background-color: #f3ac13;
+      color: white;
+      border: none;
+      padding: 15px 0;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 100%;
+      font-weight: bold;
+    }
+
+    form.contato-form input[type="submit"]:hover {
+      background-color: #d1940c;
+    }
+
+    /* Imagem no contato */
+    aside.imagem-contato {
+      flex: 1;
+      min-width: 280px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    aside.imagem-contato img {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* RODAPÉ */
+    footer {
+      background-color: #222121;
+      color: white;
+      font-size: 1rem;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    footer table {
+      margin: 0 auto;
+      max-width: 600px;
+      width: 100%;
+      border-collapse: collapse;
+      color: white;
+    }
+
+    footer table td {
+      padding: 10px 15px;
+      vertical-align: middle;
+      font-weight: 500;
+    }
+
+    footer table img {
+      width: 24px;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+
+    /* RESPONSIVO */
+    @media (max-width: 900px) {
+      .menu-topo {
+        top: 10px;
+        right: 10px;
+        gap: 10px;
+        padding: 8px 10px;
+      }
+
+      header p {
+        font-size: 2rem;
+      }
+
+      main {
+        flex-direction: column;
+        margin: 20px;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      nav ul li a {
+        padding: 10px;
+        font-size: 1rem;
+      }
+
+      .texto-principal,
+      aside.imagens-laterais,
+      section.servicos-container,
+      section.servicos-lista,
+      section.clientes,
+      section.contato-container {
+        max-width: 100%;
+        margin: 20px auto;
+      }
+
+      section.servicos-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      section.servicos-lista {
+        justify-content: center;
+      }
+
+      section.contato-container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- MENU SUPERIOR DIREITO (3 BOTÕES HORIZONTAIS) -->
+  <nav class="menu-topo">
+    <a href="../index.html">Início</a>
+    <a href="cidade.html">Jundiaí</a>
+    <a href="tecnologica.html">TecnoLógica</a>
+  </nav>
+
+  <header>
+    <p>
+      Contrate um <br />
+      profissional <br />
+      qualificado <br />
+      para não perder <br />
+      dinheiro e tempo
+    </p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#">ORÇAMENTOS</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="texto-principal">
+      <h2>Sua família pode correr risco de vida com uma instalação mal feita ou até com instalações antigas</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat cupiditate magni delectus voluptates quos! Voluptatem, praesentium deleniti.
+        Vitae distinctio, hic laboriosam perspiciatis minus adipisci facere fugiat quaerat modi quas explicabo deserunt ad ratione, quod ab. Quibusdam est
+        officia ad dignissimos veritatis laborum tempora autem impedit dolorum illo earum illum reprehenderit fugit sint harum repellat, odio veniam, cumque
+        tenetur deserunt, quae vel enim. Error, quam atque perspiciatis, voluptatum nesciunt dignissimos dolores, reprehenderit at fuga ratione pariatur
+        sit placeat mollitia provident debitis?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident facilis in illum voluptates, corporis nulla porro optio consequatur nam fuga nobis
+        distinctio laboriosam praesentium modi beatae quisquam maiores qui assumenda aut, consequuntur molestias tempora sunt, ipsum error? Fugit quod quos
+        ratione laboriosam praesentium provident ea eum necessitatibus. Numquam cum id architecto, perspiciatis perferendis quibusdam rerum est? Quidem voluptatum
+        natus omnis molestiae dicta, velit, aperiam corrupti provident quaerat voluptatibus molestias iusto esse repellat placeat possimus facilis. Rerum commodi
+        deleniti debitis maiores asperiores, quidem iure tempora, consequatur sed odit eaque velit excepturi amet quod inventore porro. Tenetur accusamus tempora
+        recusandae debitis nisi, impedit facilis. Placeat reprehenderit quo sint nemo, inventore error illo laboriosam! Quis error consequatur iste incidunt,
+        dolorem voluptatum atque. Necessitatibus dolores fugit consequatur dicta iste eius vero, ipsam accusantium, accusamus minus, dolorum obcaecati aliquid
+        perferendis adipisci magni repellat? Animi illum excepturi voluptatibus molestiae voluptates in, ratione minima aperiam voluptate eveniet?
+      </p>
+    </div>
+
+    <aside class="imagens-laterais">
+      <img src="../imagens/img_eletrica/eletrica_ruim1.jpg" alt="Imagem 1" />
+      <img src="../imagens/img_eletrica/eletrica_ruim2.jpg" alt="Imagem 2" />
+      <img src="../imagens/img_eletrica/eletrica_ruim3.jpg" alt="Imagem 3" />
+    </aside>
+  </main>
+
+  <section class="servicos-container">
+    <img src="../imagens/img_eletrica/img_banner_2.png" alt="Banner" />
+    <h1>SERVIÇOS COM QUALIDADE E RESPONSABILIDADE</h1>
+  </section>
+
+  <section class="servicos-lista">
+    <div class="servico">Projetos Elétricos</div>
+    <div class="servico">Instalações</div>
+    <div class="servico">Manutenção</div>
+  </section>
+
+  <section class="clientes">
+    <h1>Clientes</h1>
+    <div class="clientes-logos">
+      <img src="../imagens/img_eletrica/ebanx.png" alt="Ebanx" />
+      <img src="../imagens/img_eletrica/spacex.png" alt="SpaceX" />
+      <img src="../imagens/img_eletrica/eletrobras.png" alt="Eletrobras" />
+      <img src="../imagens/img_eletrica/microsoft.png" alt="Microsoft" />
+      <img src="../imagens/img_eletrica/nubank.png" alt="Nubank" />
+    </div>
+  </section>
+
+  <section class="contato-container">
+    <form class="contato-form">
+      <table>
+        <tr>
+          <th><label for="nome">Nome</label></th>
+          <td><input type="text" id="nome" name="nome" required /></td>
+        </tr>
+        <tr>
+          <th><label for="email">E-mail</label></th>
+          <td><input type="email" id="email" name="email" required /></td>
+        </tr>
+        <tr>
+          <th><label for="fone">Fone</label></th>
+          <td><input type="tel" id="fone" name="fone" placeholder="11-98745-1665" pattern="[0-9]{2}-[0-9]{5}-[0-9]{4}" required /></td>
+        </tr>
+        <tr>
+          <th><label for="mensagem">Mensagem</label></th>
+          <td><textarea id="mensagem" name="mensagem" rows="5" required></textarea></td>
+        </tr>
+        <tr>
+          <td colspan="2"><input type="submit" value="Enviar" /></td>
+        </tr>
+      </table>
+    </form>
+
+    <aside class="imagem-contato">
+      <img src="../imagens/img_eletrica/imgF.png" alt="Imagem Contato" />
+    </aside>
+  </section>
+
+  <footer>
+    <table>
+      <tr>
+        <td><img src="../imagens/img_eletrica/whats.png" alt="WhatsApp" /> (XX) 9XXXX-XXXX</td>
+        <td></td>
+        <td><img src="../imagens/img_eletrica/localiza.png" alt="Localização" /> Minha localização</td>
+      </tr>
+      <tr>
+        <td><img src="../imagens/img_eletrica/mail.png" alt="Email" /> email@email.com.br</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td>© 2025 Portfólio Pessoal - Desenvolvido por Luís Gustavo Piovesan.</td>
+      </tr>
+    </table>
+  </footer>
+</body>
+
+</html>

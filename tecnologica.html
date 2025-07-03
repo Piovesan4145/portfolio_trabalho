@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TecnoLógica - Tudo sobre tecnologia</title>
+
+</head>
+
+<style>/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Cores e fontes gerais */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Cabeçalho */
+#header {
+  background-color: #0d47a1;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#logo h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+#logo .white {
+  color: #ffeb3b;
+}
+
+/* Menu */
+#menu a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+#menu a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Conteúdo */
+#content {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 15px;
+}
+
+/* Postagens principais */
+#posts {
+  flex: 3;
+  margin-right: 20px;
+}
+
+.post {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.post h2 {
+  margin-bottom: 10px;
+  color: #0d47a1;
+}
+
+.post .data-post {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.post img {
+  max-width: 100%;
+  border-radius: 4px;
+  margin: 15px 0;
+}
+
+.post a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #0d47a1;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.post a:hover {
+  text-decoration: underline;
+}
+
+/* Sidebar */
+#right-side {
+  flex: 1;
+  min-width: 250px;
+}
+
+.content-right {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.content-right h3 {
+  border-bottom: 2px solid #0d47a1;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+
+.post-right {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.post-right a {
+  color: #0d47a1;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.post-right a:hover {
+  text-decoration: underline;
+}
+
+.content-right a {
+  color: #0d47a1;
+  text-decoration: none;
+  display: inline-block;
+  margin: 5px 0;
+}
+
+.content-right a:hover {
+  text-decoration: underline;
+}
+
+
+/* Responsividade básica */
+@media (max-width: 768px) {
+  #content {
+    flex-direction: column;
+  }
+  
+  #posts {
+    margin-right: 0;
+  }
+
+}
+</style>
+
+<body>
+
+    <header id="header">
+  <div id="logo">
+    <h1>Tecno<span class="highlight">Lógica</span></h1>
+  </div>
+
+  <nav id="menu">
+    <a href="../index.html">Início</a>
+    <a href="cidade.html">Jundiaí</a>
+    <a href="elétrica.html">Elétrica</a>
+  </nav>
+</header>
+
+
+    <div id="content">
+
+        <div id="posts">
+
+            <!-- abertura postagem -->
+            <div class="post">
+                <h2>Titulo da postagem 1</h2>
+                <span class="data-post">postado 04 setembro 2024</span>
+                <img class="img-post" src="../imagens/img_tecnologica/game01.png">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et scelerisque quam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent nulla turpis, gravida at nunc eu, luctus aliquam justo. Praesent eget risus vehicula
+                </p>
+                <a href="">Leia mais</a>
+            </div>
+            <!--fechamento postagem -->
+
+        </div>
+    
+        <div id="right-side">
+
+            <div class="content-right">
+                <h3>Postagens recentes</h3>
+
+                <div class="post-right">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <a href="">Leia mais</a>
+                </div>
+
+                <div class="post-right" style="border-bottom: none;">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <a href="">Leia mais</a>
+                </div>
+
+            </div>
+
+            <div class="content-right">
+                <h3>Categorias</h3>
+
+                <a href="">Tecnologia</a><br>
+                <a href="">Jogos</a><br>
+                <a href="">Smartphones</a><br>
+                
+            </div>
+
+        </div>
+
+       
+
+    </div>
+</body>
+
+</html>
